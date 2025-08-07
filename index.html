@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+ChatGPT said:
+Absolutely! Here’s your updated code with your logo added in the header above the navigation.
+I also made the logo clickable (links to your homepage), which is standard for modern sites and great for user experience.
+
+html
+Copy
+Edit
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,6 +14,21 @@
   <style>
     body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #16181c; color: #f5f5f7;}
     header, footer { background: #23252b; padding: 20px 0; text-align: center;}
+    .logo-header {
+      margin-bottom: 18px;
+    }
+    .logo-header img {
+      max-width: 220px;
+      width: 90%;
+      margin: 0 auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px #0003;
+      transition: transform 0.12s;
+    }
+    .logo-header img:hover {
+      transform: scale(1.03);
+    }
     nav a { color: #fff; text-decoration: none; margin: 0 12px; font-weight: 600;}
     .hero { padding: 40px 20px; text-align: center; background: #25272f;}
     .hero h1 { font-size: 2.5rem; margin-bottom: 12px;}
@@ -27,6 +48,7 @@
     @media (max-width: 900px) {
       .referrals { flex-direction: column; align-items: center;}
       .brand-card { width: 92%;}
+      .logo-header img { max-width: 170px;}
     }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8757905862194096"
@@ -35,6 +57,11 @@
 </head>
 <body>
   <header>
+    <div class="logo-header">
+      <a href="/">
+        <img src="/images/degenerate-logo.jpg" alt="Degenerate Rewards Logo">
+      </a>
+    </div>
     <nav>
       <a href="/">Home</a>
       <a href="/roobet-rewards.html">Roobet</a>
@@ -120,6 +147,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
