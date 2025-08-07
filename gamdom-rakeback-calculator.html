@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gamdom Monthly Rakeback Calculator | DegenRewards</title>
+  <meta name="description" content="Calculate your monthly Gamdom rakeback using this easy calculator. Enter your wagered amount and see your potential rewards!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #16181c;
+      color: #f5f5f7;
+      margin: 0;
+    }
+    header, footer {
+      background: #23252b;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 600;
+    }
+    .ad-space {
+      background: #23252b;
+      margin: 20px auto 30px auto;
+      min-height: 90px;
+      max-width: 730px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffcb05;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .main-content {
+      max-width: 440px;
+      margin: 34px auto 36px auto;
+      background: #1a1c22;
+      border-radius: 12px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 18px #0004;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #ffcb05;
+      text-align: center;
+    }
+    label {
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 8px;
+      color: #f5f5f7;
+      margin-top: 10px;
+    }
+    input[type="number"] {
+      padding: 10px;
+      width: 100%;
+      border-radius: 7px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 1.08rem;
+      background: #23252b;
+      color: #f5f5f7;
+    }
+    button {
+      padding: 12px;
+      width: 100%;
+      background: #ffcb05;
+      color: #16181c;
+      border: none;
+      border-radius: 7px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #ffd933;
+    }
+    #result {
+      font-weight: bold;
+      margin-top: 24px;
+      color: #7df99c;
+      text-align: center;
+      font-size: 1.18rem;
+    }
+    .info {
+      margin-top: 20px;
+      background: #25272f;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 1.02rem;
+      color: #bfbfbf;
+    }
+    .brand-btn {
+      background: #ffcb05;
+      color: #16181c;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      margin: 18px 0 8px 0;
+    }
+    @media (max-width: 600px) {
+      .main-content { padding: 18px 8px; }
+      input, button { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/roobet-rewards.html">Roobet</a>
+      <a href="/gamdom-rewards.html">Gamdom</a>
+      <a href="/duelbits-rewards.html">Duelbits</a>
+      <a href="/casino-comparison.html">Comparison</a>
+      <a href="/best-bonuses.html">Bonuses</a>
+      <a href="/gambling-strategies.html">Strategies</a>
+      <a href="/is-gamdom-safe.html">Is Gamdom Safe?</a>
+      <a href="/gamdom-rakeback-calculator.html">Rakeback Calculator</a>
+    </nav>
+  </header>
+
+  <div class="ad-space">Your Ad Here (Leaderboard 728x90)</div>
+
+  <div class="main-content">
+    <h1>Gamdom Monthly Rakeback Calculator</h1>
+    <div class="info">
+      <p>
+        Want to know how much rakeback you’re earning on Gamdom? Just enter how much you wager in a typical month and see what kind of rewards you could score. (Based on my own experience as a Gamdom VIP, this calculator uses the standard rate – yours might be even higher with bonuses!)
+      </p>
+    </div>
+    <form onsubmit="event.preventDefault(); calculateRakeback();">
+      <label for="wagered">Enter your wagered amount ($):</label>
+      <input type="number" id="wagered" placeholder="e.g. 1987054" min="0" step="any" />
+      <button type="submit">Calculate Rakeback</button>
+    </form>
+    <div id="result"></div>
+    <a class="brand-btn" href="https://gamdom.com/r/kimboslice" target="_blank" rel="noopener">Play Gamdom with Code: kimboslice</a>
+    <div class="info">
+      <p>
+        <b>Pro Tip:</b> Use my <a href="https://gamdom.com/r/kimboslice" style="color:#ffcb05;font-weight:600;" target="_blank">referral code: kimboslice</a> when signing up for even more rewards and free XP drops!
+      </p>
+    </div>
+  </div>
+
+  <div class="ad-space">Ad Spot</div>
+
+  <footer class="footer">
+    <p>&copy; 2025 DegenRewards. 18+ only. Gamble responsibly. This tool is for estimation only and doesn’t guarantee exact rakeback amounts. For official rates, see Gamdom’s rewards page.</p>
+  </footer>
+  
+  <script>
+    function calculateRakeback() {
+      const wagered = parseFloat(document.getElementById('wagered').value);
+      const rakebackRate = 0.00396; // Based on your data
+      if (isNaN(wagered) || wagered <= 0) {
+        document.getElementById('result').innerText = "Please enter a valid wagered amount.";
+        return;
+      }
+      const rakeback = wagered * rakebackRate;
+      document.getElementById('result').innerText = `Estimated Monthly Rakeback: $${rakeback.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
