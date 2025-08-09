@@ -90,8 +90,13 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <footer class="footer">
-    <p>&copy; 2025 DegenRewards. 18+ only. Gamble responsibly. Estimates shown are not guarantees.</p>
+  <footer>
+    <p class="muted">&copy; 2025 DegenRewards · 
+      <a href="/privacy-policy.html">Privacy</a> · 
+      <a href="/terms.html">Terms</a> · 
+      <a href="/affiliate-disclosure.html">Affiliate Disclosure</a> · 
+      <a href="/contact.html">Contact</a>
+    </p>
   </footer>
 
   <script>
@@ -105,8 +110,6 @@
         return;
       }
 
-      // Rates are not shown to the user; logic only:
-      // Profit month => 0.346% ; Loss month => 0.396%
       const rate = (resultType === 'profit') ? 0.00346 : 0.00396;
       const estimate = wagered * rate;
 
