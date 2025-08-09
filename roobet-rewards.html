@@ -23,14 +23,24 @@
     .brand-card { background: #23252b; border-radius: 12px; padding: 32px 24px; width: 340px; box-shadow: 0 4px 18px #0004; text-align: center; display: flex; flex-direction: column; align-items: center; margin: 30px auto; }
     .brand-card img { width: 82px; margin-bottom: 16px; border-radius: 8px; }
     .brand-card h2 { font-size: 1.25rem; margin-bottom: 10px; }
-    .brand-btn { background: #ffcb05; color: #16181c; padding: 10px 18px; border-radius: 6px; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 12px; }
+    .brand-btn, .btn { background: #ffcb05; color: #16181c; padding: 10px 18px; border-radius: 6px; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 12px; }
     details { margin-bottom: 10px; }
     summary { cursor: pointer; font-weight: 600; }
     .footer { font-size: 0.95rem; opacity: 0.75; }
+    .links { margin-top: 10px; }
+    .links a { color:#ffcb05; text-decoration: underline; }
+    .float-cta{
+      position:fixed;right:18px;bottom:18px;z-index:9999;
+      background:#ffcb05;color:#16181c;padding:12px 16px;border-radius:10px;
+      font-weight:800;text-decoration:none;box-shadow:0 8px 24px #0007;
+      transition:transform 0.15s ease-in-out;
+    }
+    .float-cta:hover{transform:translateY(-1px)}
     @media (max-width: 900px) {
       section { width: 90%; padding: 16px; }
       .brand-card { width: 90%; }
     }
+    @media (max-width:640px){.float-cta{left:18px;right:18px;text-align:center}}
   </style>
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8757905862194096" crossorigin="anonymous"></script>
@@ -76,6 +86,12 @@
         <li>VIP tiers that add perks over time</li>
       </ul>
       <a class="brand-btn" href="https://roobet.com/?ref=timboice12" target="_blank" rel="nofollow sponsored noopener">Join Roobet</a>
+      <div class="links" aria-label="Helpful Roobet guides">
+        <a href="/roobet-rakeback.html">Rakeback Guide</a> ·
+        <a href="/roobet-payments.html">Deposits & Withdrawals</a> ·
+        <a href="/is-roobet-legit.html">Is Roobet Legit?</a> ·
+        <a href="/casino-comparison.html">Compare Sites</a>
+      </div>
     </div>
   </section>
 
@@ -94,9 +110,15 @@
     <ol>
       <li>Open <a href="https://roobet.com/?ref=timboice12" target="_blank" rel="nofollow sponsored noopener">this Roobet link</a> (code <b>timboice12</b> auto-applies).</li>
       <li>Create your account and complete any required verification.</li>
-      <li>Deposit (crypto or supported options) and check the Rewards tab for rakeback and promos.</li>
+      <li>Deposit (crypto or supported options) and check the <b>Rewards</b> tab for rakeback and promos.</li>
     </ol>
     <p style="opacity:.85;">Rewards and payment options vary by region, level, and current terms—review on-site details before playing.</p>
+
+    <!-- In-content CTA -->
+    <p style="margin-top:6px;">
+      Ready to try it?
+      <a class="btn" href="https://roobet.com/?ref=timboice12" target="_blank" rel="nofollow sponsored noopener">Join Roobet Now</a>
+    </p>
   </section>
 
   <div class="ad-space">
@@ -133,5 +155,44 @@
       <a href="/contact.html">Contact</a>
     </p>
   </footer>
+
+  <!-- Floating CTA -->
+  <a class="float-cta" href="https://roobet.com/?ref=timboice12" target="_blank" rel="nofollow sponsored noopener">
+    Claim Roobet Bonus →
+  </a>
+
+  <!-- JSON-LD FAQ for rich results -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is Roobet safe?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Based on personal play, deposits and withdrawals have processed as expected and games include provably fair checks. Use strong account security and verify regional terms."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Is Roobet available everywhere?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"No. Availability depends on your location and licensing. Access via VPN may violate terms—always review the site’s rules for your country."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How do rakeback and bonuses work on Roobet?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Rakeback and bonuses credit according to on-site rules, your level, and activity. Check the Rewards tab for your current offers and eligibility."
+        }
+      }
+    ]
+  }
+  </script>
 </body>
 </html>
