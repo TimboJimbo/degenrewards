@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gamdom Monthly Rakeback Calculator | DegenRewards</title>
-  <meta name="description" content="Estimate monthly Gamdom rakeback: enter wagered amount and whether your month ended in profit or loss." />
+  <title>Gamdom Monthly Rakeback Calculator (2025) – Estimate Your Rewards | DegenRewards</title>
+  <meta name="description" content="Use our free Gamdom rakeback calculator to estimate your monthly rewards. Enter your wagered amount and see how much rakeback you could earn." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://degenrewards.com/gamdom-rakeback-calculator.html" />
@@ -13,8 +13,8 @@
     header, footer { background:#23252b; padding:20px 0; text-align:center; }
     nav a { color:#fff; text-decoration:none; margin:0 12px; font-weight:600; }
     .ad-space { background:#23252b; margin:20px auto 30px; min-height:90px; max-width:730px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
-    .main-content { max-width:480px; margin:34px auto 36px; background:#1a1c22; border-radius:12px; padding:32px 24px; box-shadow:0 4px 18px #0004; }
-    h1 { font-size:1.6rem; margin-bottom:8px; color:#ffcb05; text-align:center; }
+    .main-content { max-width:500px; margin:34px auto 36px; background:#1a1c22; border-radius:12px; padding:32px 24px; box-shadow:0 4px 18px #0004; }
+    h1 { font-size:1.7rem; margin-bottom:8px; color:#ffcb05; text-align:center; }
     label { font-size:1.05rem; display:block; margin:12px 0 6px; color:#f5f5f7; }
     input[type="number"] { padding:10px; width:100%; border-radius:7px; border:none; margin-bottom:10px; font-size:1.08rem; background:#23252b; color:#f5f5f7; }
     .row { display:flex; gap:12px; align-items:center; margin:8px 0 2px; }
@@ -24,6 +24,8 @@
     #result { font-weight:700; margin-top:18px; color:#7df99c; text-align:center; font-size:1.12rem; }
     .info { margin-top:18px; background:#25272f; border-radius:8px; padding:16px; font-size:1.02rem; color:#bfbfbf; }
     .brand-btn { background:#ffcb05; color:#16181c; padding:10px 18px; border-radius:6px; font-weight:600; text-decoration:none; display:inline-block; margin:18px 0 8px; }
+    .related-links { margin-top:20px; font-size:.95rem; opacity:.85; }
+    .related-links a { color:#ffcb05; text-decoration:underline; margin-right:6px; }
     @media (max-width:600px){ .main-content{ padding:18px 12px; } input,button{ font-size:1rem; } }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8757905862194096" crossorigin="anonymous"></script>
@@ -55,8 +57,9 @@
 
   <main class="main-content">
     <h1>Gamdom Monthly Rakeback Calculator</h1>
+    <p style="text-align:center">Estimate your monthly rakeback rewards on Gamdom by entering your total wagers and whether you finished the month in profit or loss.</p>
 
-    <form onsubmit="event.preventDefault(); calculateRakeback();" aria-label="Rakeback calculator">
+    <form onsubmit="event.preventDefault(); calculateRakeback();" aria-label="Gamdom Rakeback Calculator">
       <label for="wagered">Wagered amount (USD):</label>
       <input type="number" id="wagered" inputmode="decimal" min="0" step="any" placeholder="e.g. 1000" required />
 
@@ -73,11 +76,19 @@
     </form>
 
     <a class="brand-btn" href="https://gamdom.com/r/kimboslice" target="_blank" rel="nofollow sponsored noopener">
-      Visit Gamdom
+      Join Gamdom with code kimboslice
     </a>
 
     <div class="info">
-      <p>This tool provides an estimate for informational purposes only. Actual rewards depend on your level, promos, and Gamdom’s current terms.</p>
+      <p>This calculator provides an <b>estimate</b> only. Actual rakeback varies by VIP level, ongoing promotions, and Gamdom’s current reward structure.</p>
+    </div>
+
+    <div class="related-links">
+      Related Gamdom guides:
+      <a href="/gamdom-rewards.html">Rewards</a> |
+      <a href="/gamdom-rakeback.html">Rakeback Guide</a> |
+      <a href="/gamdom-games.html">Games</a> |
+      <a href="/gamdom-payments.html">Payments</a>
     </div>
   </main>
 
@@ -115,6 +126,41 @@
 
       resultEl.textContent = `Estimated Monthly Rakeback: $${estimate.toFixed(2)}`;
     }
+  </script>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Gamdom Rakeback Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "description": "Free tool to estimate monthly rakeback rewards on Gamdom based on wagered amount and monthly outcome.",
+    "url": "https://degenrewards.com/gamdom-rakeback-calculator.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DegenRewards"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How accurate is this Gamdom rakeback calculator?",
+        "acceptedAnswer":{"@type":"Answer","text":"This calculator provides an estimate based on average rakeback rates. Your actual rewards may differ depending on your VIP level, promotions, and Gamdom's terms."}
+      },
+      {
+        "@type":"Question",
+        "name":"What inputs do I need for the calculator?",
+        "acceptedAnswer":{"@type":"Answer","text":"You only need to enter your total wagered amount in USD and select whether your month ended in profit or loss."}
+      }
+    ]
+  }
   </script>
 </body>
 </html>
