@@ -2,11 +2,14 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Roobet vs Gamdom vs Duelbits — Which is best?</title>
 <meta name="description" content="Compare Roobet, Gamdom, and Duelbits: bonuses, games, payments, and KYC.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; img-src 'self' https: data:; script-src 'self' https: 'unsafe-inline'; style-src 'self' https: 'unsafe-inline'; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https:;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; img-src 'self' https: data:; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' https: 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https:">
 <link rel="stylesheet" href="/assets/style.css"><meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://degenrewards.com/compare.html">
-<meta property="og:title" content="Compare">
-<meta property="og:description" content="Neutral overview. Availability and terms vary by region. 18+ only.">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://degenrewards.com/">
 <script type='application/ld+json'>{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://degenrewards.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://degenrewards.com/compare.html"}]}</script>
 </head><body>
 <header class="header">
@@ -73,3 +76,47 @@
 <footer class="footer"><div class="container"><p class="notice">18+ Please gamble responsibly. If you need help, visit <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer nofollow">BeGambleAware</a>.</p></div><div class="container"><p class="notice">18+ Please gamble responsibly.</p></div></footer>
 <script src="/assets/site.js"></script>
 </body></html>
+
+<main class="container">
+<section class="card" id="compare-table">
+  <h2>Detailed comparison</h2>
+  <table class="table" id="sites">
+    <thead><tr>
+      <th data-k="site">Site</th>
+      <th data-k="rewards">Rewards</th>
+      <th data-k="kyc">KYC</th>
+      <th data-k="payments">Payments</th>
+      <th data-k="sportsbook">Sportsbook</th>
+      <th>Join</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Roobet</td><td>Promos, challenges</td><td>Regional</td><td>Crypto</td><td>—</td><td><a class="cta" href="https://roobet.com/?ref=timboice12" target="_blank" rel="nofollow sponsored noopener noreferrer">Join</a></td></tr>
+      <tr><td>Gamdom</td><td>Cashback-style</td><td>Regional</td><td>Crypto</td><td>—</td><td><a class="cta" href="https://gamdom.com/r/kimboslice" target="_blank" rel="nofollow sponsored noopener noreferrer">Join</a></td></tr>
+      <tr><td>Duelbits</td><td>Promos, missions</td><td>Regional</td><td>Crypto</td><td>Yes</td><td><a class="cta" href="https://duelbits.com/?a=Degenrewards" target="_blank" rel="nofollow sponsored noopener noreferrer">Join</a></td></tr>
+    </tbody>
+  </table>
+  <p class="notice">Availability and terms vary by region. Always check the operator site for current details.</p>
+</section>
+</main>
+<script>
+(function() {
+  var t = document.getElementById('sites'); if(!t) return;
+  var ths = t.querySelectorAll('th[data-k]');
+  var dir = 1; var lastKey = null;
+  ths.forEach(function(th){
+    th.style.cursor='pointer';
+    th.addEventListener('click', function(){
+      var k = th.dataset.k;
+      dir = (lastKey===k) ? -dir : 1; lastKey = k;
+      var idx = Array.from(th.parentNode.children).indexOf(th);
+      var rows = Array.from(t.tBodies[0].rows);
+      rows.sort(function(a,b){
+        var A = a.cells[idx].textContent.trim().toLowerCase();
+        var B = b.cells[idx].textContent.trim().toLowerCase();
+        return dir * A.localeCompare(B);
+      });
+      rows.forEach(function(r){ t.tBodies[0].appendChild(r); });
+    });
+  });
+})();
+</script>

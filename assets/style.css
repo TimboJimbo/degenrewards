@@ -1,7 +1,6 @@
-
 :root{
-  --bg:#0b0c10;--card:#111318;--text:#e8eaed;--muted:#b0b6c3;--brand:#6ee7b7;--accent:#60a5fa;--danger:#ef4444;
-  --radius:16px;
+--bg:#0b0c10;--card:#111318;--text:#e8eaed;--muted:#b0b6c3;--brand:#6ee7b7;--accent:#60a5fa;--danger:#ef4444;
+--radius:16px;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);}
@@ -30,9 +29,6 @@ img{background:#0f1116;border-radius:12px}
 .cookiebar{position:fixed;bottom:16px;left:16px;right:16px;background:#0f1116;border:1px solid #1f2430;border-radius:12px;padding:12px 16px;display:flex;gap:12px;align-items:center;z-index:60}
 .cookiebar .btn{margin-left:auto}
 .btn{background:#1f2937;color:#e5e7eb;border:1px solid #2a3345;border-radius:10px;padding:8px 12px;cursor:pointer}
-
-
-/* --- Pro upgrades --- */
 .main-grid {display:grid; grid-template-columns: 1fr 320px; gap:24px}
 @media (max-width:980px){ .main-grid {grid-template-columns: 1fr; } }
 .sidebar .card{position:sticky; top:88px}
@@ -52,21 +48,16 @@ img{background:#0f1116;border-radius:12px}
 .badge-lg{font-size:13px; padding:6px 12px}
 .hero .meta{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
 blockquote.note{border-left:4px solid #60a5fa; padding-left:10px; color:#cbd5e1}
-
-
-/* --- Referral-focused polish --- */
 .nav{background:#0f1116;border-bottom:1px solid #1f2430}
 .nav .container{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:10px 16px}
 .nav a{color:#cbd5e1}
 .nav a:hover{color:#fff}
 .brand{display:flex;gap:10px;align-items:center;font-weight:700}
 .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--brand)}
-
 .hero-banner{background:linear-gradient(90deg,#0f1116,#111827);border:1px solid #1f2430;border-radius:16px;padding:20px;margin:16px 0;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .hero-banner .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chip{background:#0f172a;border:1px solid #233044;color:#9fb4ff;border-radius:999px;padding:6px 10px;font-size:12px}
 .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media(max-width:900px){.steps{grid-template-columns:1fr}}
 .step{background:#0f1116;border:1px solid #1f2430;border-radius:14px;padding:14px;position:relative}
@@ -74,19 +65,14 @@ blockquote.note{border-left:4px solid #60a5fa; padding-left:10px; color:#cbd5e1}
 .step.deposit:before{background:radial-gradient(circle at 30% 30%,#22c55e55 0 40%,transparent 41%)}
 .step.withdraw:before{background:radial-gradient(circle at 30% 30%,#60a5fa55 0 40%,transparent 41%)}
 .step.rewards:before{background:radial-gradient(circle at 30% 30%,#f59e0b55 0 40%,transparent 41%)}
-
 .iconrow{display:flex;gap:10px;flex-wrap:wrap}
 .icon{display:inline-flex;align-items:center;gap:6px;border:1px solid #2a3345;border-radius:999px;padding:6px 10px;font-size:12px;background:#0f1116}
-
 .section-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .tiny{font-size:12px;color:var(--muted)}
-
 .table.gridish td,.table.gridish th{white-space:nowrap}
 .kicker{font-size:13px;color:#9ca3af;margin:-6px 0 8px}
-
 .badgelist{display:flex;gap:8px;flex-wrap:wrap}
 .badgelist .badge{background:#142033;border:1px solid #22324b}
-
 :root{--bg:#0b0c10;--card:#111318;--text:#e8eaed;--muted:#b0b6c3;--brand:#6ee7b7;--accent:#60a5fa;--radius:16px}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
@@ -118,7 +104,7 @@ a:hover{text-decoration:underline}
 .proscons .bad{border-left:4px solid #ef4444;padding-left:10px}
 .iconrow{display:flex;gap:10px;flex-wrap:wrap}
 .icon{display:inline-flex;align-items:center;gap:6px;border:1px solid #2a3345;border-radius:999px;padding:6px 10px;font-size:12px;background:#0f1116}
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#0f1116;border-top:1px solid #1f2430;padding:10px 12px;display:flex;gap:10px;align-items:center;z-index:70}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#0f1116;border-top:1px solid #1f2430;padding:10px 12px;display:flex;gap:10px;align-items:center;z-index:70;transform:translateY(100%);transition:transform .25s ease}
 .sticky-cta .cta{margin-left:auto}
 .topbar18{padding:10px;text-align:center;border-bottom:1px solid #1f2430;background:#0b0c10;color:#cbd5e1;font-size:14px}
 .nav{background:#0f1116;border-bottom:1px solid #1f2430}
