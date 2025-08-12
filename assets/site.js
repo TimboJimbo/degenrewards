@@ -1,3 +1,4 @@
+
 (function(){
   // External link hygiene
   const isExternal = (href) => {
@@ -13,6 +14,7 @@
       a.setAttribute('rel', rel.filter(Boolean).join(' '));
     }
   });
+
   // Cookie consent (UK-friendly neutral messaging)
   try{
     if(!localStorage.getItem('cookieconsent')){
@@ -23,6 +25,7 @@
       document.body.appendChild(bar);
     }
   }catch(e){}
+
   // Image fallback
   document.querySelectorAll('img').forEach(img=>{
     img.addEventListener('error', function(){
@@ -34,6 +37,7 @@
     }, {once:true});
   });
 })();
+
 (function(){
   const isExternal = (href) => { try { const u = new URL(href, location.href); return u.origin !== location.origin; } catch(e){ return false; } };
   document.querySelectorAll('a[href]').forEach(a=>{
@@ -44,6 +48,7 @@
       a.setAttribute('rel', rel.filter(Boolean).join(' '));
     }
   });
+  // Cookie bar + GA consent + CTA/outbound tracking
   try{
     if(!localStorage.getItem('cookieconsent')){
       const bar = document.createElement('div'); bar.className='cookiebar';
@@ -52,77 +57,22 @@
       document.body.appendChild(bar);
     }
   }catch(e){}
-  document.querySelectorAll('img').forEach(img=>{
-    img.addEventListener('error', function(){
-      this.src = this.dataset && this.dataset.fallback ? this.dataset.fallback : "/assets/fallback-amazon-uk.png";
-    }, {once:true});
+  // GA
+  var GA_ID='G-G7SH0VSKH2'; window.dataLayer=window.dataLayer||[]; window.gtag=window.gtag||function(){dataLayer.push(arguments);};
+  gtag('consent','default',{ ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied', functionality_storage:'denied', security_storage:'granted' });
+  function loadGA(){ if(window.__gaLoaded) return; window.__gaLoaded=true; var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(s); gtag('js', new Date()); gtag('config', GA_ID, { anonymize_ip:true }); }
+  try{ if(localStorage.getItem('cookieconsent')==='1'){ gtag('consent','update',{analytics_storage:'granted'}); loadGA(); }
+    else { document.addEventListener('click',function(e){ var btn=e.target.closest('.cookiebar .btn'); if(btn){ try{localStorage.setItem('cookieconsent','1');}catch(_){}
+      gtag('consent','update',{analytics_storage:'granted'}); loadGA(); } }); } }catch(e){}
+  document.addEventListener('click', function(e){ var a=e.target.closest('a'); if(!a) return;
+    if(a.classList.contains('cta')){ gtag('event','join_click',{ brand:(/roobet|gamdom|duelbits/i.exec(a.href)||['other'])[0], location:a.closest('section')?.id||'unknown', page_path:location.pathname }); }
+    else if(isExternal(a.href)){ gtag('event','outbound_click',{ link_url:a.href, page_path:location.pathname }); }
   });
-  // === GA4 + Consent Mode v2 + CTA/outbound events ===
-  var GA_ID = 'G-G7SH0VSKH2';
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
-  gtag('consent','default',{
-    ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied',
-    analytics_storage:'denied', functionality_storage:'denied', security_storage:'granted'
-  });
-  function loadGA(){
-    if(window.__gaLoaded) return; window.__gaLoaded = true;
-    var s=document.createElement('script'); s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
-    document.head.appendChild(s);
-    gtag('js', new Date());
-    gtag('config', GA_ID, { anonymize_ip:true });
-  }
-  try{
-    if(localStorage.getItem('cookieconsent')==='1'){
-      gtag('consent','update',{ analytics_storage:'granted' });
-      loadGA();
-    }else{
-      document.addEventListener('click',function(e){
-        var btn=e.target.closest('.cookiebar .btn');
-        if(btn){
-          try{localStorage.setItem('cookieconsent','1');}catch(_){}
-          gtag('consent','update',{ analytics_storage:'granted' });
-          loadGA();
-        }
-      });
-    }
-  }catch(_){}
-  function brandFrom(h){ h=(h||'').toLowerCase();
-    if(h.includes('roobet')) return 'roobet';
-    if(h.includes('gamdom')) return 'gamdom';
-    if(h.includes('duelbits')) return 'duelbits';
-    return 'other';
-  }
-  document.addEventListener('click',function(e){
-    var a=e.target.closest('a'); if(!a) return;
-    if(a.classList.contains('cta')){
-      gtag('event','join_click',{ brand:brandFrom(a.href), location:a.closest('section')?.id||'unknown', page_path:location.pathname });
-    }else{
-      // outbound analytics for all external links
-      try{ if(isExternal(a.href)) gtag('event','outbound_click',{ link_url:a.href, page_path:location.pathname }); }catch(_){}
-    }
-  });
-  // === Smart sticky CTA (shows after 30% scroll, hides near footer) ===
-  (function(){
-    try{
-      var bar=document.querySelector('.sticky-cta'); if(!bar) return;
-      var shown=false;
-      function atFooter(){
-        var f=document.querySelector('footer'); if(!f) return false;
-        var r=f.getBoundingClientRect();
-        return r.top < (window.innerHeight - 80);
-      }
-      function onScroll(){
-        var y=window.scrollY||document.documentElement.scrollTop||0;
-        var doc=document.documentElement.scrollHeight - window.innerHeight;
-        var pct = doc>0 ? (y/doc) : 0;
-        var shouldShow = pct>0.3 && !atFooter();
-        if(shouldShow && !shown){ bar.style.transform='translateY(0)'; shown=true; }
-        if(!shouldShow && shown){ bar.style.transform='translateY(100%)'; shown=false; }
-      }
-      window.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-    }catch(e){}
-  })();
+  // CTA variant
+  try{ var v=localStorage.getItem('ctaVariant'); if(!v){ v=(Math.random()>0.5?'A':'B'); localStorage.setItem('ctaVariant',v); }
+    document.querySelectorAll('a.cta[data-cta-variant]').forEach(function(a){ var txt=a.textContent.trim();
+      if(v==='A'){ a.textContent = txt.replace('Open ','').replace(' & check',''); }
+      else { var m=a.textContent.match(/Roobet|Gamdom|Duelbits/i); var b=m?m[0]:'site'; if(/join/i.test(txt)) a.textContent='Open '+b+' & check rewards'; } });
+    var old=window.gtag; window.gtag=function(){ try{ if(arguments[0]==='event'){ var p=arguments[2]||{}; p.cta_variant=v; arguments[2]=p; } }catch(e){} return old.apply(this, arguments); };
+  }catch(e){}
 })();
