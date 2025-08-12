@@ -30,3 +30,25 @@ img{background:#0f1116;border-radius:12px}
 .cookiebar{position:fixed;bottom:16px;left:16px;right:16px;background:#0f1116;border:1px solid #1f2430;border-radius:12px;padding:12px 16px;display:flex;gap:12px;align-items:center;z-index:60}
 .cookiebar .btn{margin-left:auto}
 .btn{background:#1f2937;color:#e5e7eb;border:1px solid #2a3345;border-radius:10px;padding:8px 12px;cursor:pointer}
+
+
+/* --- Pro upgrades --- */
+.main-grid {display:grid; grid-template-columns: 1fr 320px; gap:24px}
+@media (max-width:980px){ .main-grid {grid-template-columns: 1fr; } }
+.sidebar .card{position:sticky; top:88px}
+.toc{border:1px solid #1f2430; border-radius:12px; padding:12px; background:#0f1116; margin:16px 0}
+.toc a{display:block; padding:6px 0; font-size:14px}
+.proscons{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:8px}
+@media (max-width:700px){.proscons{grid-template-columns:1fr}}
+.proscons .good{border-left:4px solid #10b981; padding-left:10px}
+.proscons .bad{border-left:4px solid #ef4444; padding-left:10px}
+.kv{display:grid; grid-template-columns:180px 1fr; gap:8px; margin:8px 0}
+.kv div{padding:6px 10px; background:#0f1116; border:1px solid #1f2430; border-radius:10px}
+.table thead th{background:#0f1116}
+.faq h3{margin-top:18px}
+.sticky-cta {position:fixed; left:0; right:0; bottom:0; background:#0f1116; border-top:1px solid #1f2430; padding:10px 12px; display:flex; gap:10px; align-items:center; z-index:70}
+.sticky-cta .cta{margin-left:auto}
+.authorbox{display:flex; align-items:center; gap:12px; padding:12px; background:#0f1116; border:1px solid #1f2430; border-radius:12px; margin-top:18px}
+.badge-lg{font-size:13px; padding:6px 12px}
+.hero .meta{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+blockquote.note{border-left:4px solid #60a5fa; padding-left:10px; color:#cbd5e1}
