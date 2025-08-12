@@ -1,4 +1,3 @@
-
 (function(){
   // External link hygiene
   const isExternal = (href) => {
@@ -14,7 +13,6 @@
       a.setAttribute('rel', rel.filter(Boolean).join(' '));
     }
   });
-
   // Cookie consent (UK-friendly neutral messaging)
   try{
     if(!localStorage.getItem('cookieconsent')){
@@ -25,7 +23,6 @@
       document.body.appendChild(bar);
     }
   }catch(e){}
-
   // Image fallback
   document.querySelectorAll('img').forEach(img=>{
     img.addEventListener('error', function(){
@@ -37,7 +34,6 @@
     }, {once:true});
   });
 })();
-
 (function(){
   const isExternal = (href) => { try { const u = new URL(href, location.href); return u.origin !== location.origin; } catch(e){ return false; } };
   document.querySelectorAll('a[href]').forEach(a=>{
