@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[href^="http"]').forEach(a=>{if(/roobet|gamdom/i.test(a.href)){a.setAttribute('rel','nofollow sponsored noopener');a.setAttribute('target','_blank');}});});
