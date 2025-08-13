@@ -72,3 +72,55 @@
     var old=window.gtag; window.gtag=function(){ try{ if(arguments[0]==='event'){ var p=arguments[2]||{}; p.cta_variant=v; arguments[2]=p; } }catch(e){} return old.apply(this, arguments); };
   }catch(e){}
 })();
+
+// === UX PASS ===
+(function(){
+  // Smooth anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      var id=this.getAttribute('href').slice(1);
+      var el=document.getElementById(id);
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+
+  // Build quick-links bar on brand pages if sections exist
+  var brandSections = [
+    {id:'payments', text:'Payments'},
+    {id:'rewards', text:'Rewards'},
+    {id:'how-to-join', text:'Sign-up'},
+    {id:'safety', text:'Is it safe?'}
+  ];
+  if(document.querySelector('#hero') && (location.pathname.includes('roobet')||location.pathname.includes('gamdom')||location.pathname.includes('duelbits'))){
+    var bar=document.createElement('div'); bar.className='quicklinks';
+    brandSections.forEach(function(s){
+      if(document.getElementById(s.id)){
+        var a=document.createElement('a'); a.href='#'+s.id; a.className='chip'; a.textContent=s.text; bar.appendChild(a);
+      }
+    });
+    var hero=document.getElementById('hero');
+    if(hero && hero.parentNode) hero.parentNode.insertBefore(bar, hero.nextSibling);
+  }
+
+  // Sticky bottom CTA on brand pages
+  if(location.pathname.match(/(roobet|gamdom|duelbits)/i)){
+    var joinLink = document.querySelector('#hero a.cta, .hero-cta .cta');
+    if(joinLink){
+      var wrap=document.createElement('div'); wrap.className='sticky-join';
+      var btn=joinLink.cloneNode(true);
+      btn.classList.add('cta-lg');
+      wrap.appendChild(btn);
+      document.body.appendChild(wrap);
+    }
+  }
+
+  // Scroll progress + back-to-top
+  var prog=document.createElement('div'); prog.className='progress'; document.body.appendChild(prog);
+  var back=document.createElement('button'); back.className='backtop btn'; back.setAttribute('aria-label','Back to top'); back.textContent='↑'; document.body.appendChild(back);
+  back.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  window.addEventListener('scroll', function(){
+    var h=document.documentElement; var max=h.scrollHeight - h.clientHeight;
+    var pct = max>0 ? (h.scrollTop / max)*100 : 0; prog.style.width=pct+'%';
+    back.style.display = (h.scrollTop>600) ? 'block':'none';
+  }, {passive:true});
+})();
