@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /best-bonuses
+Allow: /comparison
+Allow: /gambling-strategies
+Allow: /responsible-gambling
+Allow: /roobet
+Allow: /gamdom
+Allow: /duelbits
+
+# Block admin areas (if any in future) 
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://degenrewards.com/sitemap.xml
